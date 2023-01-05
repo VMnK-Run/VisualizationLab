@@ -1,0 +1,71 @@
+{
+  "_from": "d3-weighted-voronoi@1.*",
+  "_id": "d3-weighted-voronoi@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-bD2i/Y63eRP6w+5knHbu9nFRiWgvB6K81SxvMGuTKSTHBJWSehZnXtqjjZ+6HXnNLy2e6LpwrBoEJdWv3Xla7w==",
+  "_location": "/d3-weighted-voronoi",
+  "_phantomChildren": {
+    "internmap": "1.0.1"
+  },
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "d3-weighted-voronoi@1.*",
+    "name": "d3-weighted-voronoi",
+    "escapedName": "d3-weighted-voronoi",
+    "rawSpec": "1.*",
+    "saveSpec": null,
+    "fetchSpec": "1.*"
+  },
+  "_requiredBy": [
+    "/d3-voronoi-map"
+  ],
+  "_resolved": "https://registry.npmjs.org/d3-weighted-voronoi/-/d3-weighted-voronoi-1.1.1.tgz",
+  "_shasum": "4e1cd282312e1b216b89ade4a0e54a90627d9493",
+  "_spec": "d3-weighted-voronoi@1.*",
+  "_where": "E:\\study\\可视化\\第二次上机\\homework_3\\node_modules\\d3-voronoi-map",
+  "author": {
+    "name": "Kcnarf",
+    "email": "fl.franck.lebeau@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Kcnarf/d3-weighted-voronoi/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "d3-array": "2",
+    "d3-polygon": "2"
+  },
+  "deprecated": false,
+  "description": "D3 plugin which computes a Weighted Voronoi tesselation",
+  "devDependencies": {
+    "rollup": "0.27",
+    "tape": "4",
+    "uglify-js": "~>2.6.0"
+  },
+  "homepage": "https://github.com/Kcnarf/d3-weighted-voronoi#readme",
+  "jsnext:main": "index",
+  "keywords": [
+    "d3",
+    "d3-module",
+    "voronoi",
+    "weighted voronoi",
+    "diagram",
+    "tesselation"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "build/d3-weighted-voronoi.js",
+  "name": "d3-weighted-voronoi",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kcnarf/d3-weighted-voronoi.git"
+  },
+  "scripts": {
+    "build": "rm -rf build && mkdir build && rollup -c ./rollup.config.js",
+    "precommit": "yarn run test && uglifyjs build/d3-weighted-voronoi.js -c -m -o build/d3-weighted-voronoi.min.js",
+    "prepublish": "zip -j build/d3-weighted-voronoi.zip -- LICENSE README.md build/d3-weighted-voronoi.js build/d3-weighted-voronoi.min.js",
+    "pretest": "yarn run build && rollup -f umd -n vanilla --o build/utils.js -- ./src/utils.js && rollup -f umd -n vanilla --o build/plane3D.js -- ./src/plane3D.js && rollup -f umd -n vanilla --o build/conflictList.js -- ./src/conflictList.js && rollup -f umd -n vanilla --o build/vertex.js -- ./src/vertex.js && rollup -f umd -n vanilla --o build/vector.js -- ./src/vector.js && rollup -f umd -n vanilla --o build/hEdge.js -- ./src/hEdge.js && rollup -f umd -n vanilla --o build/face.js -- ./src/face.js && rollup -f umd -n vanilla --o build/convexHull.js -- ./src/convexHull.js && rollup -f umd -n vanilla --o build/powerDiagram.js -- ./src/powerDiagram.js && rollup -f umd -n vanilla --o build/d3-polygon-clip.js -- ./src/d3-polygon-clip.js",
+    "test": "tape 'test/**/*-test.js'"
+  },
+  "version": "1.1.1"
+}

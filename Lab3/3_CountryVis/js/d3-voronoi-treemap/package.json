@@ -1,0 +1,71 @@
+{
+  "_from": "d3-voronoi-treemap",
+  "_id": "d3-voronoi-treemap@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-uXziZJV7KgfO6BuUdgMh1dKV3YkBW/FaA/FfxTHHJN1k1sc0e3FxacfKFRTv9+RsSsuNC74ovdL+UNs1HhFJIw==",
+  "_location": "/d3-voronoi-treemap",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "d3-voronoi-treemap",
+    "name": "d3-voronoi-treemap",
+    "escapedName": "d3-voronoi-treemap",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/d3-voronoi-treemap/-/d3-voronoi-treemap-1.1.1.tgz",
+  "_shasum": "c6f968bccb6a5a30fa50a7639dfdaecad6c4d72c",
+  "_spec": "d3-voronoi-treemap",
+  "_where": "E:\\study\\可视化\\第二次上机\\homework_3",
+  "author": {
+    "name": "Kcnarf",
+    "email": "fl.franck.lebeau@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Kcnarf/d3-voronoi-treemap/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "d3-array": "1.*",
+    "d3-polygon": "1.*",
+    "d3-voronoi-map": "2.*"
+  },
+  "deprecated": false,
+  "description": "D3 plugin which computes a treemap based on Voronoi tesselation",
+  "devDependencies": {
+    "rollup": "0.27",
+    "tape": "4",
+    "uglify-js": "~>2.6.0"
+  },
+  "homepage": "https://github.com/Kcnarf/d3-voronoi-treemap#readme",
+  "jsnext:main": "index",
+  "keywords": [
+    "d3",
+    "d3-module",
+    "voronoi",
+    "treemap",
+    "diagram",
+    "tesselation"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "build/d3-voronoi-treemap.js",
+  "name": "d3-voronoi-treemap",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kcnarf/d3-voronoi-treemap.git"
+  },
+  "scripts": {
+    "build": "rm -rf build && mkdir build && rollup -c ./rollup.config.js",
+    "precommit": "yarn run test && uglifyjs build/d3-voronoi-treemap.js -c -m -o build/d3-voronoi-treemap.min.js",
+    "prepublish": "zip -j build/d3-voronoi-treemap.zip -- LICENSE README.md build/d3-voronoi-treemap.js build/d3-voronoi-treemap.min.js",
+    "pretest": "yarn run build",
+    "test": "tape 'test/**/*-test.js'"
+  },
+  "version": "1.1.1"
+}

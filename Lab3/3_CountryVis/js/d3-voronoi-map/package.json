@@ -1,0 +1,71 @@
+{
+  "_from": "d3-voronoi-map@2.*",
+  "_id": "d3-voronoi-map@2.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-bio7//n7zy+eD6WxZv6sUBFieY7RtxYHpSv313UGl4YnPmi/h3XrV55IOdRKyaAak6dd8hEEcKqaGAgsiJIO+Q==",
+  "_location": "/d3-voronoi-map",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "d3-voronoi-map@2.*",
+    "name": "d3-voronoi-map",
+    "escapedName": "d3-voronoi-map",
+    "rawSpec": "2.*",
+    "saveSpec": null,
+    "fetchSpec": "2.*"
+  },
+  "_requiredBy": [
+    "/d3-voronoi-treemap"
+  ],
+  "_resolved": "https://registry.npmjs.org/d3-voronoi-map/-/d3-voronoi-map-2.1.0.tgz",
+  "_shasum": "b2063aa448dff2e737267d3da5d688496cd083dc",
+  "_spec": "d3-voronoi-map@2.*",
+  "_where": "E:\\study\\可视化\\第二次上机\\homework_3\\node_modules\\d3-voronoi-treemap",
+  "author": {
+    "name": "Kcnarf",
+    "email": "fl.franck.lebeau@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Kcnarf/d3-voronoi-map/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "d3-dispatch": "1.*",
+    "d3-polygon": "1.*",
+    "d3-timer": "1.*",
+    "d3-weighted-voronoi": "1.*"
+  },
+  "deprecated": false,
+  "description": "D3 plugin which computes a map (one-level treemap), based on Voronoi tesselation",
+  "devDependencies": {
+    "rollup": "0.27",
+    "tape": "4",
+    "uglify-js": "~>2.6.0"
+  },
+  "homepage": "https://github.com/Kcnarf/d3-voronoi-map#readme",
+  "jsnext:main": "index",
+  "keywords": [
+    "d3",
+    "d3-module",
+    "voronoi",
+    "map",
+    "diagram",
+    "tesselation"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "build/d3-voronoi-map.js",
+  "name": "d3-voronoi-map",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kcnarf/d3-voronoi-map.git"
+  },
+  "scripts": {
+    "build": "rm -rf build && mkdir build && rollup -c ./rollup.config.js",
+    "precommit": "yarn run test && uglifyjs build/d3-voronoi-map.js -c -m -o build/d3-voronoi-map.min.js",
+    "pretest": "yarn run build && rollup -f umd -n vanilla --o build/flickering-mitigation.js -- ./src/flickering-mitigation.js && rollup -f umd -n vanilla --o build/initial-weight-policies/half-average-area.js -- ./src/initial-weight-policies/half-average-area.js && rollup -f umd -n vanilla --o build/initial-position-policies/random.js -- ./src/initial-position-policies/random.js && rollup -f umd -n vanilla --o build/initial-position-policies/pie.js -- ./src/initial-position-policies/pie.js",
+    "preversion": "yarn run precommit && zip -j build/d3-voronoi-map.zip -- LICENSE README.md build/d3-voronoi-map.js build/d3-voronoi-map.min.js",
+    "test": "tape 'test/**/*-test.js'"
+  },
+  "version": "2.1.0"
+}
